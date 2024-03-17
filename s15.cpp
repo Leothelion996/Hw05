@@ -1,4 +1,4 @@
-#include hw05.h
+#include "hw05.h"
 
 int Sum(int *p, int k) {
 int i;
@@ -14,6 +14,6 @@ int d[5];
 int s;
 // i n i t i a l i z e d [ ]
 s = Sum(d,5);
-cout << "s: " << s;
+std::cout << "s: " << s;
 return 0;
 }

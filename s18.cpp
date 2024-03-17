@@ -1,4 +1,4 @@
-#include hw05.h
+#include "hw05.h"
 
 int Sum(int *A[], int r) {
 int j, k, sum = 0;

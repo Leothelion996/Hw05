@@ -6,6 +6,11 @@
 #ifndef _H_
 #define _H_
 
+/***********************************************************
+ * This assigment is for debugging the code provided to us 
+ * by the professor.                                       *
+ ***********************************************************/
+
 #include <iostream>
 
 #endif

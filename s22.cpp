@@ -14,8 +14,8 @@ int main() {
 int *d, s;
 d = new int[5*8];
 if (!d) return -1;
-...
+// ...
 s = Sum(d,5,8);
-delete [] d; // ye s !
+delete [] d; // yes !
 return 0;
 }

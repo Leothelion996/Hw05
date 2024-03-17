@@ -1,4 +1,4 @@
-#include hw05.h
+#include "hw05.h"
 
 int Sum(int A[][8]) {
 int i, j, sum = 0;
@@ -15,7 +15,5 @@ int d[5][8];
 int s;
 // i n i t i a l i z e ∗d
 s = Sum(d);
-...
-...
 return 0;
 }

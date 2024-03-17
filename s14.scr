@@ -1,0 +1,79 @@
+Script started on 2024-03-16 16:03:23-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="141" LINES="26"]
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ g++ -g s14.cpp -o s14
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ gdb ./s14
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.1-0ubuntu1) [m[35;1m9.1[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./s14[m...
+(gdb) l
+1	#include "hw05.h"
+2	
+3	int Sum(int A[5]) {
+4	  int i;
+5	  int sum = 0;
+6	  for(i=0;i<5;++i) {
+7	    sum += A[i];
+8	  }
+9	  return sum;}
+10	
+(gdb) b 10[K[K9
+Breakpoint 1 at [34m0x1208[m: file [32ms14.cpp[m, line 9.
+(gdb) p sum
+No symbol "sum" in current context.
+(gdb) b 8
+Note: breakpoint 1 also set at pc [34m0x1208[m.
+Breakpoint 2 at [34m0x1208[m: file [32ms14.cpp[m, line 9.
+(gdb) p sum
+No symbol "sum" in current context.
+(gdb) r
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s14 
+
+Breakpoint 1, [33mSum[m ([36mA[m=0x7fffffffdf50) at [32ms14.cpp[m:9
+9	  return sum;}
+(gdb) p sum
+$1 = 1431668373
+(gdb) p &sm[Kum
+$2 = (int *) [34m0x7fffffffdf2c[m
+(gdb) p A
+$3 = (int *) [34m0x7fffffffdf50[m
+(gdb) p A[K*A
+$4 = 0
+(gdb) p i 
+$5 = 5
+(gdb) p &i
+$6 = (int *) [34m0x7fffffffdf28[m
+(gdb) s
+[33mmain[m () at [32ms14.cpp[m:16
+16	std::cout << "s: " << s;
+(gdb) s[Kp d
+$7 = {0, 0, 1431654624, 21845, -8096}
+(gdb) p &d
+$8 = (int (*)[5]) [34m0x7fffffffdf50[m
+(gdb) p s
+$9 = 1431668373
+(gdb) p &s
+$10 = (int *) [34m0x7fffffffdf4c[m
+(gdb) p main
+$11 = {int [33m[m(void)} [34m0x55555555520d[m <[33mmain()[m>
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 194562] will be killed.
+
+Quit anyway? (y or n) y
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ exit
+exit
+
+Script done on 2024-03-16 16:10:56-07:00 [COMMAND_EXIT_CODE="0"]

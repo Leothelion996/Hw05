@@ -1,0 +1,23 @@
+commit 065487a54a55e9d039a1813ba5abbdf628d9e927
+Author: Leo-Win10 <leonardo.herrera1996@yahoo.com>
+Date:   Thu Mar 14 22:58:55 2024 -0700
+
+    added the code into all the files. set up the header file.
+
+commit cf97bd789123eeb74535c2d66a522087270714d7
+Author: Leo-Win10 <leonardo.herrera1996@yahoo.com>
+Date:   Thu Mar 14 20:31:22 2024 -0700
+
+    added the remaining files needed for debug. Added header file.
+
+commit b4ccabec87f97b8aa0c659fa723815d39c89ebb6
+Author: Leo-Win10 <leonardo.herrera1996@yahoo.com>
+Date:   Thu Mar 14 20:00:44 2024 -0700
+
+    second commit. Added new file.
+
+commit f63bd994f15ee73924c259d8bfdc22a146ad5a09
+Author: Leonardo Herrera <leonardo.herrera1996@yahoo.com>
+Date:   Thu Mar 14 18:20:33 2024 -0700
+
+    created homework folder for this assigment. Added a blank main.cpp file.
