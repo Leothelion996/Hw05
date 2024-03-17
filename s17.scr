@@ -1,0 +1,90 @@
+Script started on 2024-03-16 21:08:32-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="141" LINES="26"]
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ make sq[K17.o s17
+g++ -c s17.cpp -o s17.o
+g++ -g s17.cpp -o s17
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ gdb ./s17
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.1-0ubuntu1) [m[35;1m9.1[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./s17[m...
+(gdb) l
+1	#include "hw05.h"
+2	
+3	int Sum(int A[][8]) {
+4	int i, j, sum = 0;
+5	for(i=0;i<5;++i) {
+6	for(j=0;j<8;++j) {
+7	sum += A[i][j];
+8	}
+9	}
+10	return sum;
+(gdb) l
+11	}
+12	
+13	int main() {
+14	int d[5][8];
+15	int s;
+16	// i n i t i a l i z e ∗d
+17	s = Sum(d);
+18	return 0;
+19	}
+(gdb) b 9
+Breakpoint 1 at [34m0x11e0[m: file [32ms17.cpp[m, line 10.
+(gdb) r
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s17 
+
+Breakpoint 1, [33mSum[m ([36mA[m=0x7fffffffdec0) at [32ms17.cpp[m:10
+10	return sum;
+(gdb) p Sum
+$1 = {int [33m[m(int (*)[8])} [34m0x555555555189[m <[33mSum(int (*) [8])[m>
+(gdb) p 8[K8[K*Sum
+$2 = {int [33m[m(int (*)[8])} [34m0x555555555189[m <[33mSum(int (*) [8])[m>
+(gdb) p sum
+$3 = 750567127
+(gdb)  p &sum
+$4 = (int *) [34m0x7fffffffde9c[m
+(gdb) p A
+$5 = (int (*)[8]) [34m0x7fffffffdec0[m
+(gdb) p *A
+$6 = {-134545408, 32767, -135739136, 32767, -136510744, 32767, -138256857, 32767}
+(gdb) s
+11	}
+(gdb) s
+[33mmain[m () at [32ms17.cpp[m:18
+18	return 0;
+(gdb) p d
+$7 = {{-134545408, 32767, -135739136, 32767, -136510744, 32767, -138256857, 32767}, {1431666705, 21845, 1431666696, 21845, -8088, 32767, 1, [m
+    [m0}, {-8416, 32767, 1431655037, 21845, 640, 0, 65535, 1}, {-8400, 32767, 1431655063, 21845, 2, 0, 1431655149, 21845}, {-136510744, [m
+    [m32767, 1431655072, 21845, 0, 0, 1431654560, 21845}}
+(gdb) p s[K*d
+$8 = {-134545408, 32767, -135739136, 32767, -136510744, 32767, -138256857, 32767}
+(gdb) p **d
+$9 = -134545408
+(gdb) p &d
+$10 = (int (*)[5][8]) [34m0x7fffffffdec0[m
+(gdb) p s
+$11 = 750567127
+(gdb) p &s
+$12 = (int *) [34m0x7fffffffdebc[m
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 198161] will be killed.
+
+Quit anyway? (y or n) y
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ exit
+exit
+
+Script done on 2024-03-16 21:13:56-07:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,128 @@
+Script started on 2024-03-16 22:05:43-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="141" LINES="26"]
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ make s20.o s20
+g++ -c s20.cpp -o s20.o
+g++ -g s20.cpp -o s20
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ gdb ./s20
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.1-0ubuntu1) [m[35;1m9.1[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./s20[m...
+(gdb) l
+1	#include "hw05.h"
+2	
+3	int Sum(int **p,int r,int c) {
+4	int j, k, sum = 0;
+5	for(j=0;j<r;++j) {
+6	for(k=0;k<c;++k) {
+7	sum += *(*(p+j)+k);
+8	}
+9	}
+10	return sum;
+(gdb) l
+11	}
+12	
+13	int main() {
+14	int **d, s, i;
+15	d = new int*[5];
+16	for(i=0;i<5;++i)
+17	d[i] = new int[8];
+18	s = Sum(d,5,8);
+19	for(i=0;i<5;++i)
+20	delete [] d[i];
+(gdb) l
+21	delete [] d;
+22	}
+(gdb) b 8[K9[K11
+Breakpoint 1 at [34m0x1218[m: file [32ms20.cpp[m, line 11.
+(gdb) r
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s20 
+
+Breakpoint 1, [33mSum[m ([36mp[m=0x55555556aeb0, [36mr[m=5, [36mc[m=8) at [32ms20.cpp[m:11
+11	}
+(gdb) p j
+$1 = 5
+(gdb)  p k
+$2 = 8
+(gdb) psum[K[K[K sum
+$3 = 0
+(gdb) p &j
+$4 = (int *) [34m0x7fffffffdf34[m
+(gdb) p&[K &k
+$5 = (int *) [34m0x7fffffffdf38[m
+(gdb) p &sum
+$6 = (int *) [34m0x7fffffffdf3c[m
+(gdb) p **p
+$7 = 0
+(gdb) p r
+$8 = 5
+(gdb) p c
+$9 = 8
+(gdb) p &r
+$10 = (int *) [34m0x7fffffffdf24[m
+(gdb) p &c
+$11 = (int *) [34m0x7fffffffdf20[m
+(gdb) s
+[33mmain[m () at [32ms20.cpp[m:19
+19	for(i=0;i<5;++i)
+(gdb) p **d
+$12 = 0
+(gdb) p D[Kd
+$13 = (int **) [34m0x55555556aeb0[m
+(gdb) p *d
+$14 = (int *) [34m0x55555556aee0[m
+(gdb) p s
+$15 = 0
+(gdb) p &s
+$16 = (int *) [34m0x7fffffffdf54[m
+(gdb) p i
+$17 = 5
+(gdb) p &i
+$18 = (int *) [34m0x7fffffffdf50[m
+(gdb) help
+List of classes of commands:
+
+[1m[1maliases[m[m -- Aliases of other commands.
+[1m[1mbreakpoints[m[m -- Making program stop at certain points.
+[1m[1mdata[m[m -- Examining data.
+[1m[1mfiles[m[m -- Specifying and examining files.
+[1m[1minternals[m[m -- Maintenance commands.
+[1m[1mobscure[m[m -- Obscure features.
+[1m[1mrunning[m[m -- Running the program.
+[1m[1mstack[m[m -- Examining the stack.
+[1m[1mstatus[m[m -- Status inquiries.
+[1m[1msupport[m[m -- Support facilities.
+[1m[1mtracepoints[m[m -- Tracing of program execution without stopping the program.
+[1m[1muser-defined[m[m -- User-defined commands.
+
+Type "help" followed by a class name for a list of commands in that class.
+Type "help all" for the list of all commands.
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+(gdb) s[Kp sum[K[K[KSum
+$19 = {int [33m[m(int **, int, int)} [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) p s
+$20 = 0
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 199053] will be killed.
+
+Quit anyway? (y or n) y
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ exit
+exit
+
+Script done on 2024-03-16 22:11:16-07:00 [COMMAND_EXIT_CODE="0"]

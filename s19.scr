@@ -1,0 +1,165 @@
+Script started on 2024-03-16 21:45:18-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="141" LINES="26"]
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ make s19.o s19
+make: 's19.o' is up to date.
+make: 's19' is up to date.
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ gdb ./s19
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.1-0ubuntu1) [m[35;1m9.1[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./s19[m...
+(gdb) l
+1	#include "hw05.h"
+2	
+3	int Sum(int **p,int r,int c) {
+4	int j, k, sum = 0;
+5	for(j=0;j<r;++j) {
+6	for(k=0;k<c;++k) {
+7	sum += p[j][k];
+8	}
+9	}
+10	return sum;
+(gdb) l
+11	}
+12	
+13	int main() {
+14	int **d, s, i;
+15	d = new int*[5];
+16	for(i=0;i<5;++i)
+17	d[i] = new int[8];
+18	s = Sum(d,5,8);
+19	for(i=0;i<5;++i)
+20	delete [] d[i];
+(gdb) l
+21	delete [] d;
+22	}
+(gdb) b 10
+Breakpoint 1 at [34m0x1215[m: file [32ms19.cpp[m, line 10.
+(gdb) r
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s19 
+
+Breakpoint 1, [33mSum[m ([36mp[m=0x55555556aeb0, [36mr[m=5, [36mc[m=8) at [32ms19.cpp[m:10
+10	return sum;
+(gdb) p sum
+$1 = 0
+(gdb) p &sum
+$2 = (int *) [34m0x7fffffffdf3c[m
+(gdb) p j
+$3 = 5
+(gdb) p &j
+$4 = (int *) [34m0x7fffffffdf34[m
+(gdb) p k
+$5 = 8
+(gdb) p &8
+Attempt to take address of value not located in memory.
+(gdb) p & [Kk
+$6 = (int *) [34m0x7fffffffdf38[m
+(gdb) p Sum
+$7 = {int [33m[m(int **, int, int)} [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) p A
+No symbol "A" in current context.
+(gdb) b 19
+Breakpoint 2 at [34m0x555555555283[m: file [32ms19.cpp[m, line 19.
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s19 
+
+Breakpoint 1, [33mSum[m ([36mp[m=0x55555556aeb0, [36mr[m=5, [36mc[m=8) at [32ms19.cpp[m:10
+10	return sum;
+(gdb) 
+(gdb) s[Kn
+11	}
+(gdb) n
+
+Breakpoint 2, [33mmain[m () at [32ms19.cpp[m:19
+19	for(i=0;i<5;++i)
+(gdb) p s
+$8 = 0
+(gdb) p&s[K[K &s
+$9 = (int *) [34m0x7fffffffdf54[m
+(gdb) pm[K i
+$10 = 5
+(gdb) p &o[Ki
+$11 = (int *) [34m0x7fffffffdf50[m
+(gdb) p s [K[K*s
+Cannot access memory at address 0x0
+(gdb) p s
+$12 = 0
+(gdb) p Sum
+$13 = {int [33m[m(int **, int, int)} [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) pSum[K[K[K Sum(d,5,8)
+
+Breakpoint 1, [33mSum[m ([36mp[m=0x55555556aeb0, [36mr[m=5, [36mc[m=8) at [32ms19.cpp[m:10
+10	return sum;
+The program being debugged stopped while in a function called from GDB.
+Evaluation of the expression containing the function
+(Sum(int**, int, int)) will be abandoned.
+When the function is done executing, GDB will silently stop.
+(gdb) b 10
+Note: breakpoint 1 also set at pc [34m0x555555555215[m.
+Breakpoint 3 at [34m0x555555555215[m: file [32ms19.cpp[m, line 10.
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/stdsoul/Documents/CS1B/hw05/s19 
+
+Breakpoint 1, [33mSum[m ([36mp[m=0x55555556aeb0, [36mr[m=5, [36mc[m=8) at [32ms19.cpp[m:10
+10	return sum;
+(gdb) n
+11	}
+(gdb) n[Kp p
+$14 = (int **) [34m0x55555556aeb0[m
+(gdb) 
+$15 = (int **) [34m0x55555556aeb0[m
+(gdb) p *p
+$16 = (int *) [34m0x55555556aee0[m
+(gdb) p **p
+$17 = 0
+(gdb) p r
+$18 = 5
+(gdb)  p &R
+Can't take address of "R" which isn't an lvalue.
+(gdb) p &r
+$19 = (int *) [34m0x7fffffffdf24[m
+(gdb) \[Kp c
+$20 = 8
+(gdb) p &c
+$21 = (int *) [34m0x7fffffffdf20[m
+(gdb) p sum
+$22 = 0
+(gdb) n
+
+Breakpoint 2, [33mmain[m () at [32ms19.cpp[m:19
+19	for(i=0;i<5;++i)
+(gdb) p **d
+$23 = 0
+(gdb) p d
+$24 = (int **) [34m0x55555556aeb0[m
+(gdb) p Sum
+$25 = {int [33m[m(int **, int, int)} [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) p *SU[Kum
+$26 = {int [33m[m(int **, int, int)} [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) p&Sum &Sum
+$27 = (int (*)(int **, int, int)) [34m0x5555555551a9[m <[33mSum(int**, int, int)[m>
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 198965] will be killed.
+
+Quit anyway? (y or n) y
+]0;stdsoul@csvm: ~/Documents/CS1B/hw05[01;32mstdsoul@csvm[00m:[01;34m~/Documents/CS1B/hw05[00m$ exit\[K
+exit
+
+Script done on 2024-03-16 22:04:48-07:00 [COMMAND_EXIT_CODE="0"]
