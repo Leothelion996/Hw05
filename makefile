@@ -1,8 +1,6 @@
 CC = g++
 
 all: s14.o s15.o s16.o s17.o s18.o s19.o s20.o s22.o s14 s15 s16 s17 s18 s19 s20 s22
-
-
 	
 s14.o: hw05.h s14.cpp
 	$(CC) -c s14.cpp -o s14.o 
